@@ -2,8 +2,21 @@
 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
 
 Analysis:
-Checking if the string has all unique characters. From uniqueness, datastructure SET comes to mind. Simplest solution would be to just throw the whole string into a set and check the length of the string to be equal to the length of the resulting set. -> SolutionOne
+Checking if the string has all unique characters. From uniqueness, data structure SET comes to mind. Simplest solution would be to just throw the whole string into a set and check the length of the string to be equal to the length of the resulting set. -> SolutionOne
 
 However, come to think of it, we are not actually taking the advantage that the given input is a string. The input being a string, we have a distinct advantage that the unique characters in the string can be limited to either alphabet or at max ascii characters. Using this fact, we can limit the time complexity for the execution to at max size of ascii character set i e 128. For this way to work, we need to use another lookup structure where we store the occurrence of each character. -> SolutionTwo
 
-Now, we can take it even one step further. We only have 128 possibilities of unique characters and if all the characters occur once that will make the max length of the string with unique characters be 128. We can check if the length is more that that, we can decide right away to return with false.
+Now, we can take it even one step further. We only have 128 possibilities of unique characters and if all the characters occur once that will make the max length of the string with unique characters be 128. We can check if the length is more that that, we can decide right away to return with false. -> SolutionThree
+
+Time Complexity:
+Theoretically the complexity for the best solution (SolutionThree) is O(n) because we are iterating through the string in worst case. However, this is limited by the size of ascii character set which is 128 (constant) and hence practically its time complexity can be said O(1)
+
+Space Complexity:
+In worst case we are storing the lookup structure which is always going to be of 128 (constant) length. Hence the space complexity is also O(1)
+
+Testing:
+Test with `nosetests` command. Either run all the tests together by doing nosetests on root package or run separately with below command.
+
+```
+nosetests Python/CH1/is_unique/test.py
+```

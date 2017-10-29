@@ -1,0 +1,23 @@
+1.1 Check Permutation:
+Given two strings write a method to decide if one is a permutation of the other
+
+Analysis:
+For checking a string being permutation of the other, we ultimately need to check if the same characters appear in both the strings and for the same amount. This could be done several ways. -> SolutionOne
+
+We could iterate through one string and check each character against the other string. If we find the character, remove the character and if we don't find the character, just return false. -> SolutionTwo
+
+But, come to think of it, if the two strings were sorted, we could just iterate through both the strings and check if the characters at the same indices are the same for both the strings. -> SolutionThree
+
+However, an even better solution would be to take the unique characters in one string and add them to lookup with their appearance count. Then we can iterate through the other string decreasing the count for the character encountered in the string from the lookup. At the end, we should have only zeros remaining as counts in the lookup. One small caveat we can add to this is that we can say that two strings with different lengths will never be the permutations of each other. In that case, we can directly return false.
+
+Time Complexity:
+Time complexity for the best solution (SolutionThree) will be O(n) as we will be iterating the string 2 times regardless the input size.
+
+Space Complexity:
+The space complexity for the best solution (SolutionThree) will be O(n) because at max we have the string with all unique characters and it will result in all the characters being stored separately.
+
+Testing:
+Test with `nosetests` command. Either run all the tests together by doing nosetests on root package or run separately with below command.
+
+```
+nosetests Python/CH1/check_permutation/test.py
