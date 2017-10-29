@@ -1,0 +1,17 @@
+1.1 Check Permutation:
+Write a method to replace all the spaces in a string with '%20'. You may assume that the string has enough space at the end to hold the additional characters and that you are given the true length of the string
+
+Analysis:
+For replacing all the spaces in the string with '%20' in python, there is not much of a choice rather than just iterating the string from beginning to end and replace the spaces with %20 when encountered. We will just make sure to make the operations inplace by starting from the end and moving the processed characters to the end of the string one by one.
+
+Time Complexity:
+Time complexity will be O(n) because we will need to go through the whole string once.
+
+Space Complexity:
+Space complexity will be O(1) because we are not going to use any additional space.
+
+Testing:
+Test with `nosetests` command. Either run all the tests together by doing nosetests on root package or run separately with below command.
+
+```
+nosetests Python/CH1/urlify/test.py
